@@ -94,7 +94,7 @@ export default function Navbar() {
         </div>
         <div className="nav-links">
           {links.map((l) => (
-            
+            <a
               key={l.label}
               href={l.href}
               className={l.label === "High And Low" ? "nav-highlight" : ""}
