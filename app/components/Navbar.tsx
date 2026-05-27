@@ -93,7 +93,7 @@ export default function Navbar() {
           <span>Unrated Studio</span>
         </div>
         <div className="nav-links">
-          {links.map(l => (
+          {links.map((l) => (
             
               key={l.label}
               href={l.href}
@@ -104,7 +104,7 @@ export default function Navbar() {
           ))}
         </div>
         <a href="https://discord.gg/SRTx68deVu" target="_blank" rel="noopener noreferrer" className="btn-discord">
-          Discord ↗
+          Discord
         </a>
         <button className="nav-mobile-btn" onClick={() => setMenuOpen(true)} aria-label="Open menu">
           <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -116,11 +116,15 @@ export default function Navbar() {
       </nav>
       {menuOpen && (
         <div className="mobile-menu">
-          <button className="mobile-close" onClick={() => setMenuOpen(false)}>✕</button>
-          {links.map(l => (
-            <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
+          <button className="mobile-close" onClick={() => setMenuOpen(false)}>X</button>
+          {links.map((l) => (
+            <a key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>
+              {l.label}
+            </a>
           ))}
-          <a href="https://discord.gg/SRTx68deVu" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>Discord ↗</a>
+          <a href="https://discord.gg/SRTx68deVu" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
+            Discord
+          </a>
         </div>
       )}
     </>
