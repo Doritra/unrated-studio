@@ -3,10 +3,10 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const links = [
-  { label: "Maps", href: "#maps" },
-  { label: "Assets", href: "#assets" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Custom", href: "#custom" },
+  { label: "High And Low", href: "/maps/high-and-low" },
+  { label: "Assets", href: "/#assets" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Custom", href: "/#custom" },
 ];
 
 export default function Navbar() {
@@ -48,6 +48,12 @@ export default function Navbar() {
           transition: color 0.2s;
         }
         .nav-links a:hover { color: #F5F3EE; }
+        .nav-links a.nav-highlight {
+          color: #F5F3EE;
+          border-bottom: 0.5px solid #555;
+          padding-bottom: 2px;
+        }
+        .nav-links a.nav-highlight:hover { border-bottom-color: #F5F3EE; }
         .btn-discord {
           display: flex; align-items: center; gap: 8px;
           font-size: 12px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
@@ -87,7 +93,15 @@ export default function Navbar() {
           <span>Unrated Studio</span>
         </div>
         <div className="nav-links">
-          {links.map(l => <a key={l.label} href={l.href}>{l.label}</a>)}
+          {links.map(l => (
+            
+              key={l.label}
+              href={l.href}
+              className={l.label === "High And Low" ? "nav-highlight" : ""}
+            >
+              {l.label}
+            </a>
+          ))}
         </div>
         <a href="https://discord.gg/SRTx68deVu" target="_blank" rel="noopener noreferrer" className="btn-discord">
           Discord ↗
